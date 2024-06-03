@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/meyburdj/coaching-conundrum-frontend.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/meyburdj/coaching_conundrum_backend.git
