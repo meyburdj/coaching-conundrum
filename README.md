@@ -15,15 +15,15 @@ Coaching Conundrum features a backend written in Python using Flask, and a front
 - `phone_number`: String
 - `role`: String ('student' or 'coach')
 
-### Session
+### Appointment
 - `id`: Integer, Primary Key
 - `coach_id`: Integer, Foreign Key (Users)
 - `start_time`: Datetime
 - `student_id`: Integer, Foreign Key (Users, Nullable)
 
-### SessionReview
+### AppointmentReview
 - `id`: Integer, Primary Key
-- `session_id`: Integer, Foreign Key (Session)
+- `appointment_id`: Integer, Foreign Key (Appointment)
 - `satisfaction_score`: Integer
 - `notes`: Text
 
@@ -37,37 +37,37 @@ Coaching Conundrum features a backend written in Python using Flask, and a front
 - **POST /user**
   - Creates a new User.
 
-### Session Endpoints
+### Appointment Endpoints
 
-- **GET /sessions**
-  - Optional param `selected_time`: Gives all available sessions for that month.
-  - Optional param `available=true` or `false`: Gives only available or booked sessions based on the presence of `student_id`.
+- **GET /appointments**
+  - Optional param `selected_time`: Gives all available appointments for that month.
+  - Optional param `available=true` or `false`: Gives only available or booked appointments based on the presence of `student_id`.
 
-- **POST /session**
-  - Creates a Session record. Can only be done if request is made with `id` corresponding to a coach.
+- **POST /appointment**
+  - Creates a appointment record. Can only be done if request is made with `id` corresponding to a coach.
 
-- **GET /session/id**
+- **GET /appointment/id**
   - Reads the record with the corresponding `id`.
 
-- **PATCH /session/id**
+- **PATCH /appointment/id**
   - Updates the record to have `student_id`.
 
-- **DELETE /session/id**
-  - Deletes the record associated with that `session_id`.
+- **DELETE /appointment/id**
+  - Deletes the record associated with that `appointment_id`.
 
-### SessionReview Endpoints
+### AppointmentReview Endpoints
 
-- **POST /session/id/review**
-  - Creates a new SessionReview record. Can only be made by the coach associated with that `session_id`.
+- **POST /appointment/id/review**
+  - Creates a new AppointmentReview record. Can only be made by the coach associated with that `session_id`.
 
 ### Coach Endpoints
 
-- **GET /session/coach/id**
-  - Reads a list of all sessions where `id` is equal to the `coach_id`.
-  - Joins `Session.id` with `SessionReview.session_id`.
+- **GET /appointment/coach/id**
+  - Reads a list of all appointments where `id` is equal to the `coach_id`.
+  - Joins `Appointment.id` with `AppointmentReview.session_id`.
 
 ### Student Endpoints
 
-- **GET /session/student/id**
-  - Reads a list of all sessions where `id` is equal to the `student_id`.
+- **GET /appointment/student/id**
+  - Reads a list of all appointments where `id` is equal to the `student_id`.
 
