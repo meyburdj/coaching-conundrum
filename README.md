@@ -18,7 +18,7 @@ Coaching Conundrum features a backend written in Python using Flask, and a front
 ### Session
 - `id`: Integer, Primary Key
 - `coach_id`: Integer, Foreign Key (Users)
-- `start_time`: Timestamp
+- `start_time`: Datetime
 - `student_id`: Integer, Foreign Key (Users, Nullable)
 
 ### SessionReview
