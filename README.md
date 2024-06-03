@@ -2,6 +2,10 @@
 
 Coaching Conundrum features a backend written in Python using Flask, and a frontend written in TypeScript using React with the Next.js App directory. It utilizes a RESTful API and a PostgreSQL database schema, both documented below. The frontend employs server-side rendering and server components, alongside client components and client-side fetching, to provide a user-friendly interface. This setup allows coaches and students to perform a wide range of interactive CRUD operations on a booking calendar. Below is a component tree representing the main frontend components, followed by detailed backend database schema and API documentation.
 
+## Assumptions and Future Considerations
+
+The application is designed with the assumption that it will eventually utilize role-based authorization. While the current implementation determines whether to render the coach or student dashboards based on query parameters for demonstration purposes, in a production environment, this would be determined by the user session data. 
+
 ## Component Tree
  ![Component Tree for Frontend](component_tree.drawio.svg)
 
